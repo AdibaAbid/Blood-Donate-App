@@ -36,7 +36,6 @@ const ProfileScreen = ({ route, navigation }) => {
   // const syncData =  SecureStore.getItemAsync('userID')
   // console.log('sync data aya-----------', syncData.id)
 
-  // localStorage.setItem('userID', userID)
 
   const [isImageLoading, setImageLoadStatus] = useState(false);
   const [image, setImage] = useState(false);
@@ -53,8 +52,7 @@ const ProfileScreen = ({ route, navigation }) => {
   useEffect(() => {
     cameraPermission()
     locationPermission()
-    // const syncData= await SecureStore.getItemAsync('userID')
-    // console.log('sync data aya-----------', syncData)
+
   }, []);
 
   //Location work
@@ -105,8 +103,7 @@ const ProfileScreen = ({ route, navigation }) => {
 
   //Submit data and safe data in firebase
   const registerUserInfo = () => {
-    const userData = {
-      // id:Date.now(),
+    let userData = {
       fName:fName,
       lName:lName,
       email:email,
@@ -117,10 +114,17 @@ const ProfileScreen = ({ route, navigation }) => {
     }
     console.log('userData****', userData)
     setUserInformation(userData)
-
     Alert.alert("Successfully Submit data")
+    setFName("")
+    setLName("")
+    setPhoneNum("")
+    setCity("")
+    setEmail("")
+    setLocation("")
+    setBloodGroup("")
   }
   //Firebase work end
+
 
   return (
 
@@ -175,6 +179,7 @@ const ProfileScreen = ({ route, navigation }) => {
                 },
               ]}
               onChangeText={Fname => setFName(Fname)}
+              value={fName}
             />
           </View>
 
@@ -191,6 +196,7 @@ const ProfileScreen = ({ route, navigation }) => {
                 },
               ]}
               onChangeText={Lname => setLName(Lname)}
+              value={lName}
             />
           </View>
 
@@ -208,6 +214,7 @@ const ProfileScreen = ({ route, navigation }) => {
                 },
               ]}
               onChangeText={phoneNum => setPhoneNum(phoneNum)}
+              value={phoneNum}
             />
           </View>
           
@@ -225,6 +232,7 @@ const ProfileScreen = ({ route, navigation }) => {
                   },
                 ]}
                 onChangeText={email => setEmail(email)}
+                value={email}
               />
             </View>
 
@@ -241,6 +249,7 @@ const ProfileScreen = ({ route, navigation }) => {
                   },
                 ]}
                 onChangeText={getLocation}
+                value={location}
               />
             </View>
 
@@ -257,6 +266,7 @@ const ProfileScreen = ({ route, navigation }) => {
                   },
                 ]}
                 onChangeText={city => setCity(city)}
+                value={city}
               />
             </View>
             
@@ -264,7 +274,7 @@ const ProfileScreen = ({ route, navigation }) => {
               selectedValue={bloodGroup}
               style={{ height: 50, width: vw*100, color:'#fff' }}
               onValueChange={bloodGroup => setBloodGroup(bloodGroup)}
-            
+              value={bloodGroup}
             >
               <Picker.Item label="Select your Blood group" value="0"/>
               <Picker.Item label="A+" value="A+" />

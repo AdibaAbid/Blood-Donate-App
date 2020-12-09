@@ -45,7 +45,7 @@ const createRoomForChat =async (friendID)=>{
                         data={donors}
                         renderItem={({ item }) => (
                             <View style={styles.list}>
-                                <Text style={{fontSize:18}}>Name: {item.fName}</Text>
+                                <Text style={{fontSize:18}}>Name: {item.fName} {item.lName}</Text>
                              <Button
                              title="Start Chat"
                              onPress={()=> {

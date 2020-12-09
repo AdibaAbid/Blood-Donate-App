@@ -201,7 +201,8 @@ const LoginInScreen = ({navigation}) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('SignUpScreen')}
+                    // onPress={() => navigation.navigate('Profile', {...data, id: Date.now()})}
+                    onPress={()=> {loginHandle(data.username, data.password )}}
                     style={[styles.signIn, {
                         borderColor: '#fc0328',
                         borderWidth: 1,

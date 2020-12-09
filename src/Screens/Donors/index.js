@@ -155,7 +155,7 @@ export default function Donor({ navigation }) {
         data={data}
         renderItem={({ item }) => (
           <View style={styles.list}>
-            <Text style={{fontSize:18}}>Name: {item.fName}</Text>
+            <Text style={{fontSize:18}}>Name: {item.fName} {item.lName}</Text>
             <Text style={{fontSize:16}}>Blood Group: {item.bloodGroup}</Text>
             <Text>Distance from you: {item.distance}km</Text>
 
